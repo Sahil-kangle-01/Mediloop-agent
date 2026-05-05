@@ -1,0 +1,9 @@
+{
+  "pharmacy_id": "e8a669a1-ec7b-4f13-98f2-fd10d27871f8",
+  "api_token": "c392b387ed201c08ab1a6a10e269ab2e431bc955f71fa16f",
+  "api_url": "https://mediloop-production-1b1e.up.railway.app",
+  "agent_version": "1.1.0",
+  "software_type": "csv",
+  "data_path": "C:\\Users\\Admin\\Desktop\\MediLoopExports",
+  "last_sync_date": "2026-05-05"
+}

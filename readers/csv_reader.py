@@ -19,6 +19,7 @@ WHAT WE ACCEPT:
     - .csv files (comma or semicolon separated)
     - .xlsx / .xls files (Excel)
     - Column names are flexible — matched by keyword (same as GPTCSVAdapter server-side)
+    - Headerless CSVs — auto-detected and injected with default column names
 
 COLUMN MATCHING (tries these in order):
     patient_name:  "patient name", "customer", "party", "name", "cust name"
@@ -58,6 +59,35 @@ COLUMN_MAP = {
     "dosage":       ["dosage", "dose", "strength", "pack size"],
     "price":        ["rate", "mrp", "price", "amount", "cost"],
 }
+
+# Keywords that would appear in a real header row.
+# If the first row contains NONE of these, it's almost certainly a data row.
+_HEADER_KEYWORDS = {
+    "patient", "name", "customer", "party", "cust",
+    "mobile", "phone", "contact", "mob",
+    "medicine", "item", "product", "drug", "description",
+    "qty", "quantity", "strips",
+    "date", "sale", "bill", "invoice",
+    "refill", "days", "duration",
+    "dosage", "dose", "strength",
+    "rate", "mrp", "price", "amount",
+}
+
+# Default positional headers injected when no header row is detected.
+# Order matches the most common headerless export format:
+# patient_name, phone, medicine_name, quantity, sale_date
+_DEFAULT_HEADERS = ["patient_name", "phone", "medicine", "quantity", "date"]
+
+
+def _looks_like_header_row(row: list[str]) -> bool:
+    """
+    Returns True if the row appears to be a header row (contains recognisable
+    column-name keywords), False if it looks like a data row.
+    """
+    for cell in row:
+        if any(kw in cell.lower() for kw in _HEADER_KEYWORDS):
+            return True
+    return False
 
 
 def _match_columns(headers: list[str]) -> dict[str, Optional[str]]:
@@ -114,7 +144,8 @@ def _estimate_refill_days(qty: int) -> int:
 
 
 def _read_csv_file(file_path: Path) -> tuple[list[str], list[list[str]]]:
-    """Read a CSV file. Auto-detect delimiter (comma or semicolon)."""
+    """Read a CSV file. Auto-detect delimiter (comma or semicolon).
+    If no header row is detected, inject default positional headers."""
     import csv
 
     # Try UTF-8 first, fall back to latin-1 (Indian software)
@@ -134,11 +165,30 @@ def _read_csv_file(file_path: Path) -> tuple[list[str], list[list[str]]]:
     reader = csv.reader(content.splitlines(), delimiter=delimiter)
     rows = list(reader)
 
-    if len(rows) < 2:
-        raise ValueError("File has fewer than 2 rows (no data)")
+    if len(rows) < 1:
+        raise ValueError("File has fewer than 1 row (empty)")
 
-    headers = [h.strip() for h in rows[0]]
-    data_rows = [[cell.strip() for cell in row] for row in rows[1:] if any(row)]
+    first_row = [h.strip() for h in rows[0]]
+
+    # ── Headerless file detection ─────────────────────────────────────────────
+    # If the first row looks like data (no recognisable header keywords),
+    # inject default positional headers and treat ALL rows as data.
+    if not _looks_like_header_row(first_row):
+        logger.warning(
+            "No header row detected — injecting default positional headers",
+            extra={
+                "file":        file_path.name,
+                "first_row":   first_row,
+                "injected":    _DEFAULT_HEADERS,
+            }
+        )
+        headers   = _DEFAULT_HEADERS
+        data_rows = [[cell.strip() for cell in row] for row in rows if any(row)]
+    else:
+        if len(rows) < 2:
+            raise ValueError("File has a header row but no data rows")
+        headers   = first_row
+        data_rows = [[cell.strip() for cell in row] for row in rows[1:] if any(row)]
 
     return headers, data_rows
 
@@ -167,8 +217,20 @@ def _read_excel_file(file_path: Path) -> tuple[list[str], list[list[str]]]:
     if not rows:
         raise ValueError("Excel file is empty")
 
-    headers = rows[0]
-    data_rows = [row for row in rows[1:] if any(row)]
+    first_row = rows[0]
+
+    # Same headerless detection for Excel files
+    if not _looks_like_header_row(first_row):
+        logger.warning(
+            "No header row detected in Excel — injecting default positional headers",
+            extra={"first_row": first_row, "injected": _DEFAULT_HEADERS}
+        )
+        headers   = _DEFAULT_HEADERS
+        data_rows = [row for row in rows if any(row)]
+    else:
+        headers   = first_row
+        data_rows = [row for row in rows[1:] if any(row)]
+
     return headers, data_rows
 
 

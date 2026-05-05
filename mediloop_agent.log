@@ -1,0 +1,79 @@
+2026-05-05 18:05:10,437  INFO      config  Config saved
+2026-05-05 18:05:31,513  INFO      mediloop.agent  Agent starting
+2026-05-05 18:05:31,514  INFO      mediloop.agent  Sync cycle starting
+2026-05-05 18:05:31,520  INFO      detector  Starting software detection scan
+2026-05-05 18:05:35,569  INFO      detector  No pharmacy software auto-detected — will use CSV drop folder
+2026-05-05 18:05:35,585  INFO      config  Config saved
+2026-05-05 18:05:35,591  INFO      mediloop.agent  Auto-detected software
+2026-05-05 18:05:35,622  INFO      readers.csv_reader  No new files in drop folder
+2026-05-05 18:05:35,622  INFO      mediloop.agent  No new sales since last sync
+2026-05-05 18:05:35,625  INFO      config  Config saved
+2026-05-05 18:07:04,165  INFO      config  Config loaded
+2026-05-05 18:07:04,168  INFO      mediloop.agent  Agent starting
+2026-05-05 18:07:04,169  INFO      mediloop.agent  Sync cycle starting
+2026-05-05 18:07:04,186  INFO      readers.csv_reader  No new files in drop folder
+2026-05-05 18:07:04,187  INFO      mediloop.agent  No new sales since last sync
+2026-05-05 18:07:04,189  INFO      config  Config saved
+2026-05-05 18:18:07,087  INFO      config  Config loaded
+2026-05-05 18:18:07,090  INFO      mediloop.agent  Agent starting
+2026-05-05 18:18:07,091  INFO      mediloop.agent  Sync cycle starting
+2026-05-05 18:18:07,103  INFO      readers.csv_reader  Processing export file
+2026-05-05 18:18:07,105  INFO      readers.csv_reader  Column mapping result
+2026-05-05 18:18:07,119  INFO      readers.csv_reader  File parsed
+2026-05-05 18:18:07,120  INFO      readers.csv_reader  Moved to done folder
+2026-05-05 18:18:07,123  INFO      readers.csv_reader  CSV drop folder scan complete
+2026-05-05 18:18:07,124  INFO      mediloop.agent  Pushing to API
+2026-05-05 18:18:21,574  ERROR     mediloop.agent  Network/API error
+2026-05-05 19:01:30,605  INFO      config  Config loaded
+2026-05-05 19:01:30,610  INFO      mediloop.agent  Agent starting
+2026-05-05 19:01:30,611  INFO      mediloop.agent  Sync cycle starting
+2026-05-05 19:01:30,637  INFO      readers.csv_reader  Processing export file
+2026-05-05 19:01:30,661  INFO      readers.csv_reader  Column mapping result
+2026-05-05 19:01:30,671  INFO      readers.csv_reader  File parsed
+2026-05-05 19:01:30,675  INFO      readers.csv_reader  Moved to done folder
+2026-05-05 19:01:30,676  INFO      readers.csv_reader  CSV drop folder scan complete
+2026-05-05 19:01:30,678  INFO      mediloop.agent  Pushing to API
+2026-05-05 19:01:38,265  ERROR     mediloop.agent  Network/API error
+2026-05-05 19:09:02,567  INFO      config  Config loaded
+2026-05-05 19:09:02,573  INFO      mediloop.agent  Agent starting
+2026-05-05 19:09:02,575  INFO      mediloop.agent  Sync cycle starting
+2026-05-05 19:09:02,599  INFO      readers.csv_reader  No new files in drop folder
+2026-05-05 19:09:02,601  INFO      mediloop.agent  No new sales since last sync
+2026-05-05 19:09:02,606  INFO      config  Config saved
+2026-05-05 19:09:45,340  INFO      config  Config loaded
+2026-05-05 19:10:14,767  INFO      mediloop.agent  Agent starting
+2026-05-05 19:10:14,775  INFO      mediloop.agent  Sync cycle starting
+2026-05-05 19:10:14,851  INFO      readers.csv_reader  Processing export file
+2026-05-05 19:10:14,867  INFO      readers.csv_reader  Column mapping result
+2026-05-05 19:10:14,900  INFO      readers.csv_reader  File parsed
+2026-05-05 19:10:14,914  INFO      readers.csv_reader  Moved to done folder
+2026-05-05 19:10:14,921  INFO      readers.csv_reader  CSV drop folder scan complete
+2026-05-05 19:10:14,930  INFO      mediloop.agent  Pushing to API
+2026-05-05 19:11:33,835  INFO      config  Config loaded
+2026-05-05 19:11:33,840  INFO      mediloop.agent  Agent starting
+2026-05-05 19:11:33,843  INFO      mediloop.agent  Sync cycle starting
+2026-05-05 19:11:33,868  INFO      readers.csv_reader  Processing export file
+2026-05-05 19:11:33,874  INFO      readers.csv_reader  Column mapping result
+2026-05-05 19:11:33,884  INFO      readers.csv_reader  File parsed
+2026-05-05 19:11:33,887  INFO      readers.csv_reader  Moved to done folder
+2026-05-05 19:11:33,891  INFO      readers.csv_reader  CSV drop folder scan complete
+2026-05-05 19:11:33,895  INFO      mediloop.agent  Pushing to API
+2026-05-05 19:11:41,094  INFO      config  Config saved
+2026-05-05 19:11:41,097  INFO      mediloop.agent  Sync OK
+2026-05-05 21:12:36,334  INFO      config  Config loaded
+2026-05-05 21:12:36,427  INFO      mediloop.agent  Agent starting
+2026-05-05 21:12:36,450  INFO      mediloop.agent  Sync cycle starting
+2026-05-05 21:12:36,539  INFO      readers.csv_reader  No new files in drop folder
+2026-05-05 21:12:36,540  INFO      mediloop.agent  No new sales since last sync
+2026-05-05 21:12:36,555  INFO      config  Config saved
+2026-05-05 21:13:32,053  INFO      config  Config loaded
+2026-05-05 21:13:32,058  INFO      mediloop.agent  Agent starting
+2026-05-05 21:13:32,059  INFO      mediloop.agent  Sync cycle starting
+2026-05-05 21:13:32,085  INFO      readers.csv_reader  Processing export file
+2026-05-05 21:13:32,089  INFO      readers.csv_reader  Column mapping result
+2026-05-05 21:13:32,102  INFO      readers.csv_reader  File parsed
+2026-05-05 21:13:32,107  INFO      readers.csv_reader  Moved to done folder
+2026-05-05 21:13:32,111  INFO      readers.csv_reader  CSV drop folder scan complete
+2026-05-05 21:13:32,114  INFO      mediloop.agent  Pushing to API
+2026-05-05 21:13:42,727  INFO      config  Config saved
+2026-05-05 21:13:42,733  INFO      mediloop.agent  Sync OK
