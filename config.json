@@ -1,0 +1,10 @@
+{
+  "pharmacy_id": "PASTE_YOUR_PHARMACY_UUID_HERE",
+  "api_token": "PASTE_YOUR_48_CHAR_TOKEN_HERE",
+  "api_url": "https://mediloop-production-1b1e.up.railway.app",
+  "software_type": "auto",
+  "data_path": null,
+  "sync_interval_minutes": 30,
+  "last_sync_date": "2026-05-01",
+  "agent_version": "1.1.0"
+}

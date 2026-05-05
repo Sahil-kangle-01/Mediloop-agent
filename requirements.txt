@@ -1,0 +1,29 @@
+# MediLoop Desktop Agent — Python dependencies
+# Install: pip install -r requirements.txt
+
+# ── Core sync ─────────────────────────────────────────────────────────────────
+requests>=2.31.0          # HTTP client for Railway API
+schedule>=1.2.0           # Cron-style scheduler
+
+# ── DBF reader (Marg, WinPharm, Visual InfoSoft) ──────────────────────────────
+dbfread>=2.0.7            # Reads FoxPro .DBF files — no ODBC needed
+
+# ── Access reader (Care, older software) ──────────────────────────────────────
+pyodbc>=5.0.0             # ODBC driver bridge — needs Access Engine from Microsoft
+
+# ── MySQL reader (GoFrugal local) ─────────────────────────────────────────────
+mysql-connector-python>=8.3.0
+
+# ── SQLite reader ─────────────────────────────────────────────────────────────
+# sqlite3 is built into Python — no extra package needed
+
+# ── CSV/Excel reader ──────────────────────────────────────────────────────────
+openpyxl>=3.1.0           # .xlsx files
+xlrd>=2.0.1               # .xls files (older Excel)
+
+# ── System tray icon ──────────────────────────────────────────────────────────
+pystray>=0.19.4           # Windows/Mac/Linux tray icon
+Pillow>=10.0.0            # PIL — required by pystray for icon rendering
+
+# ── PyInstaller (build .exe) ──────────────────────────────────────────────────
+# pyinstaller>=6.0.0      # Uncomment to install — only needed on dev machine
